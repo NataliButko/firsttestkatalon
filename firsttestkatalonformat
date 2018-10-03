@@ -1,0 +1,83 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.checkpoint.CheckpointFactory as CheckpointFactory
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as MobileBuiltInKeywords
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testcase.TestCaseFactory as TestCaseFactory
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testdata.TestDataFactory as TestDataFactory
+import com.kms.katalon.core.testobject.ObjectRepository as ObjectRepository
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WSBuiltInKeywords
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
+import internal.GlobalVariable as GlobalVariable
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+
+import com.thoughtworks.selenium.Selenium
+import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.WebDriver
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium
+import static org.junit.Assert.*
+import java.util.regex.Pattern
+import static org.apache.commons.lang3.StringUtils.join
+
+WebUI.openBrowser('https://www.katalon.com/')
+def driver = DriverFactory.getWebDriver()
+String baseUrl = "https://www.katalon.com/"
+selenium = new WebDriverBackedSelenium(driver, baseUrl)
+selenium.open("http://automationpractice.com/index.php?controller=authentication&back=my-account")
+selenium.click("link=Sign in")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email address'])[1]/following::span[1]")
+selenium.click("id=email_create")
+selenium.type("id=email_create", "nv.butko.nv@gmail.com")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email address'])[1]/following::span[1]")
+selenium.click("id=id_gender2")
+selenium.click("id=customer_firstname")
+selenium.type("id=customer_firstname", "Natali")
+selenium.click("id=customer_lastname")
+selenium.type("id=customer_lastname", "Butko")
+selenium.click("id=email")
+selenium.click("id=passwd")
+selenium.type("id=passwd", "natali91")
+selenium.click("id=days")
+selenium.select("id=days", "label=regexp:2\\s+")
+selenium.click("id=days")
+selenium.click("id=months")
+selenium.select("id=months", "label=regexp:March\\s")
+selenium.click("id=months")
+selenium.click("id=years")
+selenium.select("id=years", "label=regexp:2005\\s+")
+selenium.click("id=years")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign up for our newsletter!'])[1]/following::label[1]")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Date of Birth'])[1]/following::label[1]")
+selenium.click("id=firstname")
+selenium.click("id=lastname")
+selenium.click("id=company")
+selenium.type("id=company", "Балтелектрон")
+selenium.click("id=address1")
+selenium.type("id=address1", "Ukraine")
+selenium.click("id=address2")
+selenium.type("id=address2", "testtex")
+selenium.click("id=city")
+selenium.type("id=city", "Запоріжжя")
+selenium.click("id=id_state")
+selenium.select("id=id_state", "label=Arizona")
+selenium.click("id=id_state")
+selenium.click("id=postcode")
+selenium.type("id=postcode", "1111`")
+selenium.click("id=id_country")
+selenium.click("id=id_country")
+selenium.click("id=phone_mobile")
+selenium.type("id=phone_mobile", "80981163722")
+selenium.click("id=phone_mobile")
+selenium.type("id=phone_mobile", "+380981163722")
+selenium.click("id=alias")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='DNI / NIF / NIE'])[1]/following::span[1]")
+selenium.click("id=address1")
